@@ -1,7 +1,4 @@
-export { FsClipboardModule } from './app/fs-clipboard.module';
+export { FsQrcodeModule } from './app/fs-qrcode.module';
 
-export { FsClipboardButtonComponent } from './app/components/clipboard-button/clipboard-button.component';
-export { FsClipboardComponent } from './app/components/clipboard/clipboard.component';
-export { FsClipboardButtonDirective } from './app/directives/clipboard/clipboard.directive';
+export * from './app/components';
 
-export { FsClipboard } from './app/services/clipboard-service';
