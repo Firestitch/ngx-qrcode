@@ -1,6 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component, ElementRef, Input, OnInit, ViewChild,
+} from '@angular/core';
 
-import QRCode from 'qrcode';
+import { generate } from 'lean-qr';
 
 
 @Component({
@@ -9,28 +12,18 @@ import QRCode from 'qrcode';
   styleUrls: ['./qrcode.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FsClipboardComponent {
+export class FsClipboardComponent implements OnInit {
+
+  @ViewChild('qrCode', { static: true })
+  public qrCode: ElementRef;
 
   @Input() public value;
   @Input() public width: number;
   @Input() public height: number;
 
-  public image;
-
-  constructor(
-    private _cdRef: ChangeDetectorRef,
-  ) {}
-
   public ngOnInit(): void {
-    QRCode.toDataURL(this.value, { 
-      errorCorrectionLevel: 'H',
-      width: this.width,
-      height: this.height,
-    })
-    .then((url) => {
-      this.image = url;
-      this._cdRef.markForCheck();
-    });
+    const qrCode = generate(this.value);
+    qrCode.toCanvas(this.qrCode.nativeElement);
   }
 
 }
