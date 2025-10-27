@@ -7,10 +7,11 @@ import { generate } from 'lean-qr';
 
 
 @Component({
-  selector: 'fs-qrcode',
-  templateUrl: './qrcode.component.html',
-  styleUrls: ['./qrcode.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'fs-qrcode',
+    templateUrl: './qrcode.component.html',
+    styleUrls: ['./qrcode.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
 })
 export class FsClipboardComponent implements OnInit {
 

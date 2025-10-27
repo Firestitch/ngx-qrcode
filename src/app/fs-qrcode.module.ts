@@ -9,19 +9,16 @@ import { FsClipboardComponent } from './components/qrcode/qrcode.component';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-
-    MatIconModule,
-    MatButtonModule,
-    MatTooltipModule,
-  ],
-  declarations: [
-    FsClipboardComponent,
-  ],
-  exports: [
-    FsClipboardComponent,
-  ],
+    imports: [
+        CommonModule,
+        MatIconModule,
+        MatButtonModule,
+        MatTooltipModule,
+        FsClipboardComponent,
+    ],
+    exports: [
+        FsClipboardComponent,
+    ],
 })
 export class FsQrcodeModule {
   static forRoot(): ModuleWithProviders<FsQrcodeModule> {
